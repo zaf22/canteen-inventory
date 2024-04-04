@@ -16,6 +16,7 @@ const AddItem = () => {
     const itemsCollectionRef = collection(db, "items");
     const navigate = useNavigate();
 
+    // adds an item to the database, then redirects to the home page 
     const addItem = async () => {
         try{
             if (IPC !== '' || quantity !== '' || description !== '' || cost !== '' || category !== ''){
@@ -39,7 +40,7 @@ const AddItem = () => {
         }   
     }
 
-    // categories to choose from
+    // lists categories to choose from
     const [itemList, setItemList] = useState([]);
 
     useEffect(() => {

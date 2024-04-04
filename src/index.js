@@ -13,6 +13,8 @@ import AddItem from './components/database/AddItem';
 import GenerateBarcode from './components/database/GenerateBarcode';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+// routing configuration
 const router = createBrowserRouter([
   {
     path: "/",

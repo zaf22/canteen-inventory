@@ -9,9 +9,10 @@ import {onAuthStateChanged} from 'firebase/auth';
 const Home = () => {
   const navigate = useNavigate();
   const userAdd = () => {
-        navigate("/addItem");
-    }
-  // item list
+      navigate("/addItem");
+  }
+
+  // generates list of items from database
   const [itemList, setItemList] = useState([]);
   const [search, setSearch] = useState("");
 
@@ -47,7 +48,7 @@ const Home = () => {
     getList();
   }, []);
 
-  // update item
+  // updates item to database
   const [editItem, setEditItem] = useState(null);
   const [editedIPC, setEditedIPC] = useState('');
   const [editedQty, setEditedQty] = useState('');
@@ -92,7 +93,7 @@ const Home = () => {
     }
   }
 
-  // delete item
+  // deletes item from database
   const deleteItem = async (id) => {
     try {
       await deleteDoc(doc(db, "items", id));
@@ -101,6 +102,7 @@ const Home = () => {
     }
   }
 
+  // navigates to the generateBarcode page, where the barcode will be generated
   const generateBarcode = (item) => {
       navigate("/generateBarcode", { state: { price: item.CostEA, itemName: item.Description } });
   }
@@ -121,6 +123,7 @@ const Home = () => {
     }
   }, []);
 
+  // the user will not be able to see the home page unless they are signed in, otherwise they will see a button that takes them to the login page
   return (
     <Container>
       {authUser ? 

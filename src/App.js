@@ -9,6 +9,8 @@ import LoginPage from './pages/LoginPage';
 
 
 function App() {
+
+  // if the user is logged in, the landing page will automatically redirect the home page. If the user is not logged into an account yet, they will be redirected to the login page
   const navigate = useNavigate();
   useEffect(() => {
       const listen = onAuthStateChanged(auth, (user) => {

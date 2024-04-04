@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 
-
+// This checks if the user is signed in or not. If they are signed in, Their email will be printed along with a button with the ability to sign out. If not, a button will appear to log in.
 const AuthDetails = () => {
     const [authUser, setAuthUser] = useState(null);
 
